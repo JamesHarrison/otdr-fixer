@@ -1,4 +1,4 @@
-name: Rust
+name: otdr-fixer
 
 on:
   push:
