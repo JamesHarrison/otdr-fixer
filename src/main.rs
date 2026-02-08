@@ -61,24 +61,24 @@ fn main() -> std::io::Result<()>  {
         in_file.read_to_end(&mut in_data)?;
         let mut sor = parse_file(&in_data).unwrap().1;
         match sor.general_parameters.as_mut() {
-            Some(mut gp) => {
+            Some(gp) => {
                 if matches.is_present("fibre_id") {
-                    gp.fiber_id = matches.value_of("fibre_id").unwrap();
+                    gp.fiber_id = matches.value_of("fibre_id").unwrap().to_string();
                 }
                 if matches.is_present("cable_id") {
-                    gp.cable_id = matches.value_of("cable_id").unwrap();
+                    gp.cable_id = matches.value_of("cable_id").unwrap().to_string();
                 }
                 if matches.is_present("originating_location") {
-                    gp.originating_location = matches.value_of("originating_location").unwrap();
+                    gp.originating_location = matches.value_of("originating_location").unwrap().to_string();
                 }
                 if matches.is_present("terminating_location") {
-                    gp.terminating_location = matches.value_of("terminating_location").unwrap();
+                    gp.terminating_location = matches.value_of("terminating_location").unwrap().to_string();
                 }
                 if matches.is_present("operator") {
-                    gp.operator = matches.value_of("operator").unwrap();
+                    gp.operator = matches.value_of("operator").unwrap().to_string();
                 }
                 if matches.is_present("comment") {
-                    gp.comment = matches.value_of("comment").unwrap();
+                    gp.comment = matches.value_of("comment").unwrap().to_string();
                 }
             }
             None => {}
