@@ -32,18 +32,15 @@ jobs:
             asset_name: otdr-fixer-macos
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
 
-      - uses: actions-rs/toolchain@v1
-        with:
-          profile: minimal
-          toolchain: stable
+      - uses: dtolnay/rust-toolchain@stable
 
       - name: Build
         run: cargo build --release --locked
 
       - name: Upload binaries to release
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.asset_name }}
           path: ${{ matrix.artifact_name }}
